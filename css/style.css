@@ -1,0 +1,245 @@
+/* Estilo para reducir la altura del navbar */
+html {
+    scroll-behavior: smooth;
+  }
+.custom-navbar {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+  h1 {
+    font-size: 3.5em;
+    color: azure;
+  }
+  h2 {
+    font-size: 2.7em;
+  }
+  
+  h3 {
+    font-size: 2em;
+  }
+  
+  p {
+    font-size: 1.25em;
+  }
+  /* Ajuste del tamaño del logo si es necesario */
+  .custom-logo {
+    max-height: 120px; /* Ajusta el tamaño del logo */
+  }
+  
+  /* Espaciado reducido para los enlaces de navegación */
+  .navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Intro Section */
+.index .intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 90vh;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../img/instalaciones-burger.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+  .index .btn {
+    min-width: 130px;
+    height: 40px;
+    color: #ffffff;
+    padding: 5px 10px;
+    font-weight: normal;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: red;
+  }
+  .index .btn:hover {
+    border-radius: 5px;
+    padding-right: 24px;
+    padding-left: 8px;
+    background-color: red;
+  }
+  .index .btn::after {
+    content: "»";
+    position: absolute;
+    opacity: 0;
+    font-size: 20px;
+    line-height: 35px;
+    top: 0px;
+    right: -20px;
+    transition: 0.4s;
+    background-color: red;
+  }
+  .index .mensaje .containermensaje {
+    text-align: center;
+    padding: 100px 12px;
+    margin: 30px;
+  }
+  .index .mensaje .containermensaje {
+    text-align: center;
+    padding: 100px 12px;
+    margin: 30px;
+  }
+  #order-container {
+    z-index: 1;
+    background: rgba(28, 28, 28, 0.9);
+    overflow-y: scroll;
+}
+
+#show-order-btn {
+    z-index: 2;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+#counter {
+    z-index: 3;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+}
+
+#send-order-btn {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem; 
+}
+
+#alert {
+    z-index: 3;
+    position: fixed;
+    bottom: 3rem;
+    right: 1rem;
+    animation: alert-out 0.7s 0.7s ease forwards;
+}
+
+.eliminar, #home-btn {
+    cursor: pointer;
+}
+
+@keyframes alert-out {
+    100% {
+        opacity: 0;
+        transform: translateY(90%) translateX(45%) scale(0);
+    }
+}
+
+.to-up {
+    animation: to-up 1s ease;
+    animation-fill-mode: forwards;
+}
+@keyframes to-up {
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+.from-up {
+    animation: from-up 1s ease;
+    animation-fill-mode: forwards;
+}
+@keyframes from-up {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.card:hover {
+    animation: card-scale 1s ease;
+    animation-fill-mode: forwards;
+}
+@keyframes card-scale {
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+.out-item {
+    animation: out-item 1s 0s ease;
+    animation-fill-mode: forwards;
+}
+@keyframes out-item {
+    100% {
+        opacity: 0;
+        transform: translatex(-100%);
+    }
+}
+
+.send-item {
+    animation: send-item 1s 0s ease;
+    animation-fill-mode: forwards;
+}
+@keyframes send-item {
+    100% {
+        opacity: 0;
+        transform: translatex(100%);
+    }
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+.card-img-top {
+    height: 350px;
+    object-fit: cover;
+}
+
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-text {
+    flex-grow: 1;
+}
+
+#total {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#enviar-pedido:disabled {
+    cursor: not-allowed;
+}
+
+.dropdown-menu {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cart-item-info {
+    flex-grow: 1;
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-actions button {
+    padding: 0 5px;
+}

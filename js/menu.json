@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "nombre": "Hamburguesa Clásica Simple",
+        "titulo": "La Original",
+        "descripcion": "Deliciosa hamburguesa de carne de res con lechuga, tomate y nuestra salsa especial.",
+        "precio": 8000.99,
+        "imagen": "../img/hamburguesasimple.jpeg"
+    },
+    {
+        "id": 2,
+        "nombre": "Hamburguesa doble con Queso",
+        "titulo": "Queso Fundido",
+        "descripcion": "Nuestra hamburguesa clásica cubierta con queso cheddar derretido.",
+        "precio": 12.99,
+        "imagen": "../img/doble.jpeg"
+    },
+    {
+        "id": 3,
+        "nombre": "Tenders de pollo",
+        "titulo": "Doble Placer",
+        "descripcion": "Para los más hambrientos: doble carne, doble queso y todos nuestros ingredientes clásicos.",
+        "precio": 15.99,
+        "imagen": "../img/tenderpollo.jpeg"
+    },
+    {
+        "id": 4,
+        "nombre": "Papas Fritas",
+        "titulo": "Verde y Sabrosa",
+        "descripcion": "Deliciosa opción vegetariana con nuestra exclusiva hamburguesa de lentejas y verduras.",
+        "precio": 11.99,
+        "imagen": "../img/fritas.jpeg"
+    },
+    {
+        "id": 5,
+        "nombre": "Aros de cebolla",
+        "titulo": "Verde y Sabrosa",
+        "descripcion": "Deliciosa opción vegetariana con nuestra exclusiva hamburguesa de lentejas y verduras.",
+        "precio": 11.99,
+        "imagen": "../img/cebolla.jpeg"
+    },
+    {
+        "id": 6,
+        "nombre": "Coca-Cola",
+        "titulo": "Verde y Sabrosa",
+        "descripcion": "Deliciosa opción vegetariana con nuestra exclusiva hamburguesa de lentejas y verduras.",
+        "precio": 11.99,
+        "imagen": "../img/cocacola.jpeg"
+    }
+]
