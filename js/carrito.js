@@ -1,3 +1,4 @@
+
 let carrito = [];
 
 export function agregarAlCarrito(producto) {
@@ -35,8 +36,7 @@ export function actualizarCarritoUI() {
         carritoElement.appendChild(itemElement);
     });
     actualizarContadorCarrito();
-    agregarEventListeners();
-    actualizarEstadoBotonVaciar(); // Actualiza el botón después de cada cambio en el carrito
+    actualizarEstadoBotonVaciar();
 }
 
 export function calcularTotal() {
@@ -44,7 +44,7 @@ export function calcularTotal() {
     document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
     const enviarPedidoBtn = document.getElementById('enviar-pedido');
     enviarPedidoBtn.disabled = carrito.length === 0;
-    actualizarEstadoBotonVaciar(); // Llama a la función para actualizar el estado del botón
+    actualizarEstadoBotonVaciar();
 }
 
 function actualizarEstadoBotonVaciar() {
@@ -82,30 +82,7 @@ function cargarCarritoDeLocalStorage() {
     }
 }
 
-function agregarEventListeners() {
-    document.querySelectorAll('.restar-del-carrito').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const id = parseInt(e.target.getAttribute('data-id'));
-            restarDelCarrito(id);
-        });
-    });
-
-    document.querySelectorAll('.sumar-al-carrito').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const id = parseInt(e.target.getAttribute('data-id'));
-            sumarAlCarrito(id);
-        });
-    });
-
-    document.querySelectorAll('.eliminar-del-carrito').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const id = parseInt(e.target.getAttribute('data-id'));
-            eliminarDelCarrito(id);
-        });
-    });
-}
-
-function restarDelCarrito(id) {
+export function restarDelCarrito(id) {
     const item = carrito.find(item => item.id === id);
     if (item) {
         item.cantidad--;
@@ -118,7 +95,7 @@ function restarDelCarrito(id) {
     }
 }
 
-function sumarAlCarrito(id) {
+export function sumarAlCarrito(id) {
     const item = carrito.find(item => item.id === id);
     if (item) {
         item.cantidad++;
@@ -128,7 +105,7 @@ function sumarAlCarrito(id) {
     }
 }
 
-function eliminarDelCarrito(id) {
+export function eliminarDelCarrito(id) {
     carrito = carrito.filter(item => item.id !== id);
     actualizarCarritoUI();
     calcularTotal();
@@ -145,14 +122,13 @@ export function vaciarCarrito() {
 function enviarPedido() {
     if (carrito.length > 0) {
         Swal.fire({
-            title: '¡Pedido Enviado!',
-            text: 'Tu pedido ha sido enviado con éxito.',
+            title: 'Pedido Enviado!',
+            text: 'Tu pedido fue enviado con éxito!.',
             icon: 'success',
             confirmButtonText: 'OK'
         }).then((result) => {
             if (result.isConfirmed) {
                 vaciarCarrito();
-                // Cerrar el modal después de enviar el pedido
                 const carritoModal = bootstrap.Modal.getInstance(document.getElementById('carritoModal'));
                 carritoModal.hide();
             }
@@ -164,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('enviar-pedido').addEventListener('click', enviarPedido);
     document.getElementById('vaciar-carrito').addEventListener('click', () => {
         Swal.fire({
-            title: '¿Estás seguro?',
+            title: 'Estás seguro?',
             text: "Se eliminarán todos los productos del carrito",
             icon: 'warning',
             showCancelButton: true,
@@ -176,8 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (result.isConfirmed) {
                 vaciarCarrito();
                 Swal.fire(
-                    '¡Carrito vaciado!',
-                    'Todos los productos han sido eliminados del carrito.',
+                    'Carrito vaciado!',
+                    'Eliminamos todos los productos de tu pedido, que tengas buen dia.',
                     'success'
                 );
             }
@@ -185,5 +161,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     cargarCarritoDeLocalStorage();
 });
-
-export { eliminarDelCarrito, restarDelCarrito, sumarAlCarrito };

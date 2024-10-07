@@ -14,7 +14,7 @@ async function cargarMenu() {
 
 function mostrarMenu() {
     const menuElement = document.getElementById('menu');
-    menuElement.innerHTML = ''; // Limpiar el menú antes de agregar los nuevos elementos
+    menuElement.innerHTML = '';
     menu.forEach(item => {
         const productoElement = document.createElement('div');
         productoElement.className = 'col-md-6 col-lg-4 mb-4';
@@ -33,7 +33,6 @@ function mostrarMenu() {
         menuElement.appendChild(productoElement);
     });
 
-    // Agregar event listeners a los botones "Agregar al carrito"
     document.querySelectorAll('.agregar-al-carrito').forEach(button => {
         button.addEventListener('click', (e) => {
             const id = parseInt(e.target.getAttribute('data-id'));
