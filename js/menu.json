@@ -2,7 +2,7 @@
     {
         "id": 1,
         "nombre": "Hamburguesa Clásica Simple",
-        "titulo": "La Original",
+        "titulo": "La Original", 
         "descripcion": "Deliciosa hamburguesa de carne de res con lechuga, tomate y nuestra salsa especial.",
         "precio": 8000.99,
         "imagen": "../img/hamburguesasimple.jpeg"
