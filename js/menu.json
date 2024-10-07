@@ -11,40 +11,40 @@
         "id": 2,
         "nombre": "Hamburguesa doble con Queso",
         "titulo": "Queso Fundido",
-        "descripcion": "Nuestra hamburguesa clásica cubierta con queso cheddar derretido.",
-        "precio": 12.99,
+        "descripcion": "Nuestra hamburguesa clásica doble con queso cheddar derretido.",
+        "precio": 10000,
         "imagen": "../img/doble.jpeg"
     },
     {
         "id": 3,
         "nombre": "Tenders de pollo",
         "titulo": "Doble Placer",
-        "descripcion": "Para los más hambrientos: doble carne, doble queso y todos nuestros ingredientes clásicos.",
-        "precio": 15.99,
+        "descripcion": "Tenders de pollo frescos y crujientes.",
+        "precio": 9000,
         "imagen": "../img/tenderpollo.jpeg"
     },
     {
         "id": 4,
         "nombre": "Papas Fritas",
-        "titulo": "Verde y Sabrosa",
+        "titulo": "Las mejores papas fritas",
         "descripcion": "Deliciosa opción vegetariana con nuestra exclusiva hamburguesa de lentejas y verduras.",
-        "precio": 11.99,
+        "precio": 5000,
         "imagen": "../img/fritas.jpeg"
     },
     {
         "id": 5,
         "nombre": "Aros de cebolla",
-        "titulo": "Verde y Sabrosa",
-        "descripcion": "Deliciosa opción vegetariana con nuestra exclusiva hamburguesa de lentejas y verduras.",
-        "precio": 11.99,
+        "titulo": "Super crocantes",
+        "descripcion": "Gran acompañamiento si estas solo.",
+        "precio": 6000,
         "imagen": "../img/cebolla.jpeg"
     },
     {
         "id": 6,
         "nombre": "Coca-Cola",
-        "titulo": "Verde y Sabrosa",
-        "descripcion": "Deliciosa opción vegetariana con nuestra exclusiva hamburguesa de lentejas y verduras.",
-        "precio": 11.99,
+        "titulo": "La mejor amiga de una haburguesa",
+        "descripcion": "La unica opcion correcta para acompañar una hamburguesa.",
+        "precio": 3000,
         "imagen": "../img/cocacola.jpeg"
     }
 ]
