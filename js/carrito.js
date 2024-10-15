@@ -1,4 +1,3 @@
-
 let carrito = [];
 
 export function agregarAlCarrito(producto) {
@@ -119,28 +118,81 @@ export function vaciarCarrito() {
     guardarCarritoEnLocalStorage();
 }
 
-function enviarPedido() {
+export function enviarPedido() {
     if (carrito.length > 0) {
-        Swal.fire({
-            title: 'Pedido Enviado!',
-            text: 'Tu pedido fue enviado con éxito!.',
-            icon: 'success',
-            confirmButtonText: 'OK'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                vaciarCarrito();
-                const carritoModal = bootstrap.Modal.getInstance(document.getElementById('carritoModal'));
-                carritoModal.hide();
-            }
-        });
+        const clienteModal = new bootstrap.Modal(document.getElementById('clienteModal'));
+        clienteModal.show();
+        const carritoModal = bootstrap.Modal.getInstance(document.getElementById('carritoModal'));
+        carritoModal.hide();
     }
+}
+
+export function mostrarDatosTarjeta() {
+    const metodoPago = document.getElementById('metodoPago').value;
+    const datosTarjeta = document.getElementById('datosTarjeta');
+    if (metodoPago === 'tarjeta') {
+        datosTarjeta.style.display = 'block';
+    } else {
+        datosTarjeta.style.display = 'none';
+    }
+}
+
+export function confirmarPedido() {
+    const nombre = document.getElementById('nombre').value;
+    const apellido = document.getElementById('apellido').value;
+    const direccion = document.getElementById('direccion').value;
+    const telefono = document.getElementById('telefono').value;
+    const metodoPago = document.getElementById('metodoPago').value;
+
+    if (!nombre || !apellido || !direccion || !telefono || !metodoPago) {
+        alert('Por favor, complete todos los campos obligatorios');
+        return;
+    }
+
+    if (metodoPago === 'tarjeta') {
+        const numeroTarjeta = document.getElementById('numeroTarjeta').value;
+        const fechaVencimiento = document.getElementById('fechaVencimiento').value;
+        const cvv = document.getElementById('cvv').value;
+
+        if (!numeroTarjeta || !fechaVencimiento || !cvv) {
+            alert('Por favor, complete todos los campos de la tarjeta');
+            return;
+        }
+    }
+
+    const resumenPedido = carrito.map(item => `${item.nombre} x${item.cantidad}`).join(', ');
+    const total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+    
+    Swal.fire({
+        title: 'Pedido Confirmado',
+        html: `
+            <h4>Resumen del pedido:</h4>
+            <p>${resumenPedido}</p>
+            <p><strong>Total: $${total.toFixed(2)}</strong></p>
+            <h4>Datos de entrega:</h4>
+            <p>Nombre: ${nombre} ${apellido}</p>
+            <p>Dirección: ${direccion}</p>
+            <p>Teléfono: ${telefono}</p>
+            <p>Método de pago: ${metodoPago}</p>
+        `,
+        icon: 'success',
+        confirmButtonText: 'OK'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            vaciarCarrito();
+            const clienteModal = bootstrap.Modal.getInstance(document.getElementById('clienteModal'));
+            clienteModal.hide();
+        }
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('enviar-pedido').addEventListener('click', enviarPedido);
+    document.getElementById('metodoPago').addEventListener('change', mostrarDatosTarjeta);
+    document.getElementById('confirmar-pedido').addEventListener('click', confirmarPedido);
     document.getElementById('vaciar-carrito').addEventListener('click', () => {
         Swal.fire({
-            title: 'Estás seguro?',
+            title: '¿Estás seguro?',
             text: "Se eliminarán todos los productos del carrito",
             icon: 'warning',
             showCancelButton: true,
@@ -153,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 vaciarCarrito();
                 Swal.fire(
                     'Carrito vaciado!',
-                    'Eliminamos todos los productos de tu pedido, que tengas buen dia.',
+                    'Todos los productos han sido eliminados de tu carrito.',
                     'success'
                 );
             }
