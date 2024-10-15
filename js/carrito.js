@@ -145,7 +145,12 @@ export function confirmarPedido() {
     const metodoPago = document.getElementById('metodoPago').value;
 
     if (!nombre || !apellido || !direccion || !telefono || !metodoPago) {
-        alert('Por favor, complete todos los campos obligatorios');
+        Swal.fire({
+            title: 'Datos incompletos',
+            text: 'Por favor, complete todos los campos obligatorios',
+            icon: 'warning',
+            confirmButtonText: 'Entendido'
+        });
         return;
     }
 
@@ -155,7 +160,12 @@ export function confirmarPedido() {
         const cvv = document.getElementById('cvv').value;
 
         if (!numeroTarjeta || !fechaVencimiento || !cvv) {
-            alert('Por favor, complete todos los campos de la tarjeta');
+            Swal.fire({
+                title: 'Datos de tarjeta incompletos',
+                text: 'Por favor, complete todos los campos de la tarjeta',
+                icon: 'warning',
+                confirmButtonText: 'Entendido'
+            });
             return;
         }
     }
